@@ -1,0 +1,50 @@
+<form class="mx-auto w-full max-w-sm space-y-4 p-4" (submit)="onSubmit($event)">
+  <h1 class="text-2xl font-semibold">Login</h1>
+
+  <hlm-form-field>
+    <input
+      hlmInput
+      class="w-full"
+      type="email"
+      autocomplete="email"
+      placeholder="Email"
+      [field]="loginForm.email"
+    />
+
+    @if (loginForm.email().touched() && loginForm.email().errors().length) {
+      <hlm-error>
+        {{ loginForm.email().errors()[0]?.message ?? 'Ungültige Eingabe' }}
+      </hlm-error>
+    }
+  </hlm-form-field>
+
+  <hlm-form-field>
+    <input
+      hlmInput
+      class="w-full"
+      type="password"
+      autocomplete="current-password"
+      placeholder="Passwort"
+      [field]="loginForm.password"
+    />
+
+    @if (loginForm.password().touched() && loginForm.password().errors().length) {
+      <hlm-error>
+        {{ loginForm.password().errors()[0]?.message ?? 'Ungültige Eingabe' }}
+      </hlm-error>
+    }
+  </hlm-form-field>
+
+  <button
+    hlmBtn
+    type="submit"
+    class="w-full"
+    [disabled]="submitting() || !loginForm().valid()"
+  >
+    @if (submitting()) {
+      Logging in…
+    } @else {
+      Login
+    }
+  </button>
+</form>

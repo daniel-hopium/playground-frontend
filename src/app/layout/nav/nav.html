@@ -1,0 +1,27 @@
+<div class="max-w-application sticky flex justify-around">
+<nav hlmNavigationMenu>
+    <a href="/" class="font-bold text-xl">Playground</a>
+    <ul hlmNavigationMenuList>
+      <li hlmNavigationMenuItem>
+        <a hlmNavigationMenuLink href="/">
+          Home
+        </a>
+      </li>
+      <li hlmNavigationMenuItem>
+        <a hlmNavigationMenuLink href="/login">
+          Login
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+  <div class="">
+    <button hlmBtn variant="ghost" size="icon" (click)="toggleTheme()" title="Toggle Theme">
+      @if (isDark()) {
+        <ng-icon hlm name="lucideSun" size="sm"></ng-icon>
+      } @else {
+        <ng-icon hlm name="lucideMoon" size="sm"></ng-icon>
+      }
+    </button>
+  </div>
+</div>
